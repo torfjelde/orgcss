@@ -7,21 +7,25 @@ $monospace: Lucida Console, monospace;
 $code-size: 80%;
 $smaller: 90%;
 $max-width: 710px;
+$background-color: #252525;
+$code-background-color: hsla(0, 0%, 52%, 0.15);
 
 body {
     width: 95%;
     margin: 2% auto;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.4em;
-    font-family: $serif;
-    color: #333;
+    font-family: $monospace;
+    
+    background-color: $background-color;
+    color: rgba(225, 225, 225, 0.7);
 }
 
-@media screen and (min-width: 600px) {
-    body {
-        font-size: 18px;
-    }
-}
+/* @media screen and (min-width: 600px) { */
+/*     body { */
+/*         font-size: 18px; */
+/*     } */
+/* } */
 
 @media screen and (min-width: 910px) {
     body {
@@ -31,6 +35,11 @@ body {
 
 ::selection {
     background: #D6EDFF;
+}
+
+img {
+    margin: 5px;
+    border-radius: 5px;
 }
 
 p {
@@ -48,7 +57,6 @@ dl {
 .title {
     text-align: center;
     margin: 0.8em auto;
-    color: black;
 }
 
 .subtitle {
@@ -335,21 +343,43 @@ p.verse {
 :not(pre) > code {
     padding: 2px 5px;
     margin: auto 1px;
-    border: 1px solid #DDD;
     border-radius: 3px;
     background-clip: padding-box;
-    color: #333;
+    color: inherit;
     font-size: $code-size;
+
+    background-color: $code-background-color;
 }
 
 .org-src-container {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
     font-family: $monospace;
     font-size: $code-size;
     margin: 1em auto;
-    padding: 0.1em 0.5em;
     position: relative;
+
+    border-radius: 5px;
+    background-color: $code-background-color;
+}
+
+pre.example {
+    font-family: $monospace;
+    font-size: $code-size;
+    margin: 1em;  /* to separate it a bit from the code-blocks */
+    position: relative;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 3px 2px 2px rgba(255, 255, 255, 0.1);
+
+    border-radius: 5px;
+}
+
+pre {
+    border: none;
+    box-shadow: none; 
+    padding: 8pt;
+    font-family: $monospace;
+    overflow: auto;
+    margin: 1.2em;
 }
 
 .org-src-container>pre {
@@ -365,7 +395,7 @@ p.verse {
     padding: 0 0.5em;
     border-bottom-left-radius: 8px;
     border: 0;
-    color: white;
+    color: $background-color;
     font-size: $code-size;
 }
 
@@ -401,6 +431,7 @@ p.verse {
 .org-src-container>pre.src-javascript:before {
     content: 'Javascript'
 }
+
 
 // More languages from http://orgmode.org/worg/org-contrib/babel/languages.html
 
@@ -583,6 +614,9 @@ p.verse {
 }
 .org-src-container>pre.src-rust:before {
     content: 'Rust';
+}
+.org-src-container>pre.src-julia:before {
+    content: 'Julia'
 }
 
 .inlinetask {

@@ -32,7 +32,9 @@
     "postcss-import": "^12.0.1",
     "precss": "^4.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "npm": "^6.14.1"
+  },
   "bugs": {
     "url": "https://github.com/gongzhitaao/orgcss/issues"
   },
